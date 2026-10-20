@@ -1,5 +1,7 @@
 package com.example.ecommercewebsite.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -17,5 +19,6 @@ public class Product extends BaseModel {
     private String description;
     private double price;
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     private Category category;
 }

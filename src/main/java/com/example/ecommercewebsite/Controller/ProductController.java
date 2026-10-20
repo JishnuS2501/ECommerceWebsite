@@ -65,11 +65,6 @@ public class ProductController {
         return productDTOS;
     }
 
-    @PutMapping("/product/modify/{id}")
-    public ProductDTO updateProductById(@PathVariable("id")  long productId,@RequestBody ProductDTO productDTO){
-        return null;
-    }
-
     @PostMapping("/product/{id}")
     public ProductDTO addProductById(@PathVariable("id") long productId,@RequestBody ProductDTO productDTO){
         if(productId<=0){
