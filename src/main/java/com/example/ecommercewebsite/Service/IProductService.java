@@ -2,8 +2,18 @@ package com.example.ecommercewebsite.Service;
 
 import com.example.ecommercewebsite.Model.Product;
 
-public interface IProductService {
-    public Product getProductById(long id);
+import java.util.List;
 
-    public Product putProductById(long productId, Product product);
+public interface IProductService {
+    Product getProductById(long id);
+
+    Product replaceProductById(long productId, Product product);
+
+    Product deleteProductById(long productId);
+
+    List<Product> getAllProduct();
+
+    Product updateProductById(long productId, Product product);
+
+    Product addProduct(Product product);
 }

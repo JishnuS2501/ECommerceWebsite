@@ -14,6 +14,8 @@ import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class ProductServiceImpl implements IProductService {
     @Autowired
@@ -31,12 +33,32 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Product putProductById(long id, Product product) {
+    public Product replaceProductById(long id, Product product) {
         FakeStoreProductDTO fakeStoreProductRequestDTO = from(product);
         ResponseEntity<FakeStoreProductDTO> fakeStoreProductDTOResponseEntity = postForEntity("https://fakestoreapi.com/products/{id}", fakeStoreProductRequestDTO, FakeStoreProductDTO.class, id);
         if(fakeStoreProductDTOResponseEntity.getStatusCode().is2xxSuccessful() && fakeStoreProductDTOResponseEntity.getBody()!= null){
             return from(fakeStoreProductDTOResponseEntity.getBody());
         }
+        return null;
+    }
+
+    @Override
+    public Product deleteProductById(long productId) {
+        return null;
+    }
+
+    @Override
+    public List<Product> getAllProduct() {
+        return List.of();
+    }
+
+    @Override
+    public Product updateProductById(long productId, Product product) {
+        return null;
+    }
+
+    @Override
+    public Product addProduct(Product product) {
         return null;
     }
 
